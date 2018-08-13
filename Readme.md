@@ -1,0 +1,1 @@
+Para entender o problema do exercício proposto basta ler o arquivo (atividade_pratica_01.pdf).
