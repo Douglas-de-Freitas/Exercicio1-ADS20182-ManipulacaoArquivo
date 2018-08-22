@@ -4,22 +4,23 @@ import java.util.List;
 
 public class Aluno {
 
-	private int matricula;
+	private String matricula;
 	private String nome;
 	private String cpf;
 	private char sexo;
 	private String dataNascimento;
-	private List<String> disciplinas;
+	//private List<String> disciplinas;
+	private List<Disciplina> disciplinas;
 
 	public Aluno() {
 
 	}
 
-	public int getMatricula() {
+	public String getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(int matricula) {
+	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
 
@@ -55,11 +56,11 @@ public class Aluno {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public List<String> getDisciplinas() {
+	public List<Disciplina> getDisciplinas() {
 		return disciplinas;
 	}
 
-	public void setDisciplinas(List<String> disciplinas) {
+	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}
 

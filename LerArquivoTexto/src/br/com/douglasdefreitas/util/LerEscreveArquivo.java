@@ -1,4 +1,4 @@
-package br.com.douglasdefreitas.controle;
+package br.com.douglasdefreitas.util;
 
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class ManipulaArquivo {
+public class LerEscreveArquivo {
 
 	private static final String LOCAL_ARQUIVO = "C:\\Users\\siddo\\Desktop\\alunos.txt"; // defina aqui o local do arquivo
 	
@@ -22,7 +22,6 @@ public class ManipulaArquivo {
 			return Files.readAllLines(path, Charset.forName("UTF-8"));
 
 		} catch (Exception e) {
-			e.printStackTrace();
 			return null;
 		}
 
@@ -38,7 +37,6 @@ public class ManipulaArquivo {
 			return true;
 
 		} catch (Exception e) {
-			e.printStackTrace();
 			return false;
 		}
 
