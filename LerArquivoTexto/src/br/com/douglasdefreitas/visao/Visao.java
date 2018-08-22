@@ -6,11 +6,19 @@ import javax.swing.JOptionPane;
 
 import br.com.douglasdefreitas.controle.TrataDadosDoArquivo;
 import br.com.douglasdefreitas.modelo.Aluno;
-import br.com.douglasdefreitas.modelo.Disciplina;
 
 public class Visao {
 
 	public static void main(String[] args) {
+		
+		// verifica no controle se ele consegue ler o arquivo sem nenhum erro
+		// Caso ele não consiga ler ele fecha antes e não retorna nada
+		List<Aluno> alunos = TrataDadosDoArquivo.criaListaDeAlunos();
+		if(alunos == null) {
+			Mensagens.imprimeMensagemErro("Erro de leitura do arquivo!\n");
+			Mensagens.imprimeMensagem("Verifique a localização e o conteudo das linhas que estão no arquivo.");
+			System.exit(0);
+		}
 		
 		boolean verifica = true;
 
@@ -27,18 +35,12 @@ public class Visao {
 							"Quantos de digitos você quer para sua sequência?: ")); // -------
 					
 					verifica = false;
-					
-					// verifica no controle se ele consegue ler o arquivo sem nenhum erro
-					// Caso ele não consiga ler ele fecha antes e não retorna nada
-					List<Aluno> alunos = TrataDadosDoArquivo.verificaStatusDoArquivo();
-					
+
 					// caso o controle tenha conseguido ler o arquivo sem nenhum erro o programa retorna
 					// para a visão que conseguiu ler sem nenhum erro e que pode imprimir o relátorio
 					Mensagens.imprimeMensagem("RELAÇÃO DE ALUNOS DE OUTROS PÓLOS DE ENSINO");
 					Mensagens.imprimeMensagem("\nSeq. Matr. Nome\n");
 					Mensagens.imprimeRelatorio(sequencia, digitos, alunos);
-					
-					System.out.println(Disciplina.getQuantidadeDeDisciplinas());
 					
 				} else {
 					JOptionPane.showMessageDialog(null, "Fora do intervalo", "Atenção",

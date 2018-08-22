@@ -6,13 +6,12 @@ import java.util.List;
 import br.com.douglasdefreitas.modelo.Aluno;
 import br.com.douglasdefreitas.modelo.Disciplina;
 import br.com.douglasdefreitas.util.LerEscreveArquivo;
-import br.com.douglasdefreitas.visao.Mensagens;
 
 public class TrataDadosDoArquivo {
 
 	private static List<String> linhasDoArquivo = LerEscreveArquivo.ler();
 
-	private static List<Aluno> criaListaDeAlunos() {
+	public static List<Aluno> criaListaDeAlunos() {
 
 		if (linhasDoArquivo != null && !linhasDoArquivo.isEmpty()) {
 
@@ -63,7 +62,6 @@ public class TrataDadosDoArquivo {
 				return alunos;
 
 			} catch (Exception e) {
-				Mensagens.imprimeMensagemErro("erro ao ler linhas do arquivo, verifique as linhas do arquivo");
 				return null;
 			}
 
@@ -71,19 +69,6 @@ public class TrataDadosDoArquivo {
 			return null;
 		}
 
-	}
-	
-	public static List<Aluno> verificaStatusDoArquivo() {
-		
-		List<Aluno> alunos = criaListaDeAlunos();
-		
-		if(alunos == null) {
-			Mensagens.imprimeMensagem("Arquivo Vázio ou não encontrado, Leitura não foi possível");
-			System.exit(0);
-		}
-		
-		return alunos;
-		
 	}
 
 }
