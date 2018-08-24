@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import br.com.douglasdefreitas.controle.TrataDadosDoArquivo;
+import br.com.douglasdefreitas.controle.Controle;
 import br.com.douglasdefreitas.modelo.Aluno;
 
 public class Visao {
@@ -12,7 +12,7 @@ public class Visao {
 	public static void main(String[] args) {
 		
 		// Solicita ao controle para criar uma lista de alunos
-		List<Aluno> alunos = TrataDadosDoArquivo.criaListaDeAlunos();
+		List<Aluno> alunos = Controle.criaERetornaListaDeAlunos();
 		
 		// controle retornou uma lista de alunos que deve ser verificada se é vazia ou não
 		if(alunos == null) {
@@ -40,7 +40,7 @@ public class Visao {
 					// Imprime a lista que o controle entregou
 					Mensagens.imprimeMensagem("RELAÇÃO DE ALUNOS DE OUTROS PÓLOS DE ENSINO");
 					Mensagens.imprimeMensagem("\nSeq. Matr. Nome\n");
-					Mensagens.imprimeMensagem(TrataDadosDoArquivo.ajustaTextoDoRelatorio(sequencia, digitos, alunos));;
+					Mensagens.imprimeMensagem(Controle.configuraImpressaoTextoDoRelatorio(sequencia, digitos, alunos));;
 					
 				} else {
 					JOptionPane.showMessageDialog(null, "Fora do intervalo", "Atenção",

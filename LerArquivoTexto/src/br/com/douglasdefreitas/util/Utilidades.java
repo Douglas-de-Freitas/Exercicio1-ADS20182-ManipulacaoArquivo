@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.sun.xml.internal.ws.util.StringUtils;
 import br.com.douglasdefreitas.modelo.Disciplina;
-import br.com.douglasdefreitas.visao.Mensagens;
 
 public class Utilidades {
 
@@ -74,10 +73,6 @@ public class Utilidades {
 			}
 
 		} catch (Exception e) {
-
-			// verificar esse catch depois
-
-			Mensagens.imprimeMensagemErro("Erro entre um cpf valido");
 			return false;
 		}
 
