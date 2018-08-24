@@ -11,16 +11,17 @@ public class Visao {
 
 	public static void main(String[] args) {
 		
-		// verifica no controle se ele consegue ler o arquivo sem nenhum erro
-		// Caso ele não consiga ler ele fecha antes e não retorna nada
+		// Solicita ao controle para criar uma lista de alunos
 		List<Aluno> alunos = TrataDadosDoArquivo.criaListaDeAlunos();
+		
+		// controle retornou uma lista de alunos que deve ser verificada se é vazia ou não
 		if(alunos == null) {
 			Mensagens.imprimeMensagemErro("Erro de leitura do arquivo!\n");
 			Mensagens.imprimeMensagem("Verifique a localização e o conteudo das linhas que estão no arquivo.");
 			System.exit(0);
 		}
 		
-		boolean verifica = true;
+		boolean verifica = true; // para verificar se para ou continua
 
 		do {
 
@@ -34,13 +35,12 @@ public class Visao {
 					int digitos = Integer.parseInt(JOptionPane.showInputDialog(null,
 							"Quantos de digitos você quer para sua sequência?: ")); // -------
 					
-					verifica = false;
+					verifica = false; // este não deixa o programa continuar o proxímo loop
 
-					// caso o controle tenha conseguido ler o arquivo sem nenhum erro o programa retorna
-					// para a visão que conseguiu ler sem nenhum erro e que pode imprimir o relátorio
+					// Imprime a lista que o controle entregou
 					Mensagens.imprimeMensagem("RELAÇÃO DE ALUNOS DE OUTROS PÓLOS DE ENSINO");
 					Mensagens.imprimeMensagem("\nSeq. Matr. Nome\n");
-					Mensagens.imprimeRelatorio(sequencia, digitos, alunos);
+					Mensagens.imprimeMensagem(TrataDadosDoArquivo.ajustaTextoDoRelatorio(sequencia, digitos, alunos));;
 					
 				} else {
 					JOptionPane.showMessageDialog(null, "Fora do intervalo", "Atenção",

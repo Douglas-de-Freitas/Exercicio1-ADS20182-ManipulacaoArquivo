@@ -3,7 +3,6 @@ package br.com.douglasdefreitas.util;
 import java.util.List;
 
 import com.sun.xml.internal.ws.util.StringUtils;
-
 import br.com.douglasdefreitas.modelo.Disciplina;
 import br.com.douglasdefreitas.visao.Mensagens;
 
@@ -17,8 +16,20 @@ public class Utilidades {
 			// https://laennder.com/como-e-feito-o-calculo-de-validacao-cpf/
 			// 123.456.789-10 (CPF inválido)
 			// 123.456.789-09 (CPF válido)
+			
+			if(
+					cpf.charAt(0) == cpf.charAt(1) && 
+					cpf.charAt(1) == cpf.charAt(2) && 
+					cpf.charAt(2) == cpf.charAt(3) && 
+					cpf.charAt(3) == cpf.charAt(4) && 
+					cpf.charAt(4) == cpf.charAt(5) && 
+					cpf.charAt(5) == cpf.charAt(6) && 
+					cpf.charAt(6) == cpf.charAt(7) && 
+					cpf.charAt(7) == cpf.charAt(8) && 
+					cpf.charAt(8) == cpf.charAt(9) && 
+					cpf.charAt(9) == cpf.charAt(10)) return false; 
 
-			String cpfString = cpf.toString();
+			String cpfString = cpf;
 			int[] pesos1 = { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
 			int[] pesos2 = { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
 			int somatoria = 0;
@@ -53,7 +64,7 @@ public class Utilidades {
 				segundoDigitoVerificador = 0;
 			}
 
-			cpfString = cpf.toString();
+			cpfString = cpf;
 
 			if (Character.getNumericValue(cpfString.charAt(9)) == primeiroDigitoVerificador
 					&& Character.getNumericValue(cpfString.charAt(10)) == segundoDigitoVerificador) {
@@ -192,10 +203,10 @@ public class Utilidades {
 
 		switch (nSexo) {
 		case '1':
-			texto += "Masc" + " ";
+			texto += "Fem" + " ";
 			break;
 		case '2':
-			texto += "Fem" + " ";
+			texto += "Masc" + " ";
 			break;
 		default:
 			break;
@@ -233,10 +244,6 @@ public class Utilidades {
 		for(int i = 0; i < disciplinas.size(); i++) {
 			texto += disciplinas.get(i).getNomeDisciplina() + ", ";
 		}
-/*
-		for (String disc : disciplinas) {
-			texto += disc + ", ";
-		}*/
 
 		return "DISCIPLINAS: " + texto;
 
